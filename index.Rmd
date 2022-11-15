@@ -19,29 +19,51 @@ Does voter turnout in Malaysian elections exert an effect on whether the incumbe
 library(tidyverse)
 turnout <- read_csv("~/Desktop/Gov 50/General-Election-Data-master/Voter Turnout GE12, GE13, GE14 - Sheet1.csv")
 turnout
-ge13 <- read_csv("~/Desktop/Gov 50/General-Election-Data-master/GE13 Incumbent win - Sheet1.csv")
-ge13
+ge14 <- read_csv("~/Desktop/Gov 50/Election-Results-2018 - Parlimen_Results_By_Candidate.csv")
+ge14[is.na(ge14)] = 0
+ge14
+
+turnout$`GE 13 VOTER TURNOUT (2013) %` <- gsub("%", "", turnout$`GE 13 VOTER TURNOUT (2013) %`)
+turnout$`GE 13 VOTER TURNOUT (2013) %` <- as.numeric(turnout$`GE 13 VOTER TURNOUT (2013) %`)
+
+turnout$`GE 14 VOTER TURNOUT (2018) %` <- gsub("%", "", turnout$`GE 14 VOTER TURNOUT (2018) %`)
+turnout$`GE 14 VOTER TURNOUT (2018) %` <- as.numeric(turnout$`GE 14 VOTER TURNOUT (2018) %`)
+
+turnout$`GE 12 VOTER TURNOUT (2008) %` <- gsub("%", "", turnout$`GE 12 VOTER TURNOUT (2008) %`)
+turnout$`GE 12 VOTER TURNOUT (2008) %` <- as.numeric(turnout$`GE 12 VOTER TURNOUT (2008) %`)
+turnout
 ```
+
 
 ```{r}
 library(dplyr)
-data <- turnout |>
- full_join(ge13)
-data
-data <- 
-  mutate_each(`GE 13 VOTER TURNOUT (2013) %`(as.numeric(sub("%","",x))/100))
-
- 
-
- mutate(ge13_turnout = `GE 13 VOTER TURNOUT (2013) %` / 100,
-         incumbent = `Incumbent win?`)
-
-
-
-
+ge14
+ge14 <- full_join(turnout, ge14, by = c("PARLIAMENT" = "Seat Name"))
 ```
+
+
 ```{r}
-fit <- lm(`Incumbent win?` ~ `GE 13 VOTER TURNOUT (2013) %`, data = data)
-coef(fit)
+hist <- ge14 |> 
+  select(`PARLIAMENT`, party_switch, `GE 14 VOTER TURNOUT (2018) %`, `Candidate Win`) |>
+  filter(`Candidate Win` == 1) |>
+  group_by(party_switch) |>
+  summarize(mean_turnout = mean(`GE 14 VOTER TURNOUT (2018) %`, na.rm = TRUE
+)) |>
+  mutate(party_switch = if_else(party_switch == 0, "No", "Yes"))
+
+hist
 ```
 
+```{r}
+library(ggplot2)
+
+ggplot(hist, aes(x =party_switch,
+                 y = mean_turnout))+
+  geom_col(fill = "dodgerblue") + 
+  labs(title = "Party switch against voter turnout",
+    x = "Party Switch",
+      y = "Mean Turnout Percentage(%)") +
+  coord_cartesian(ylim=c(75,85)) 
+```
+
+```
