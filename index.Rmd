@@ -155,4 +155,3 @@ coef(fit_noswitch_multi)
 ## shhould i run a hypothesis test to show hhow likely it would be that i get these results?(a brief (one paragraph) concluding section that summarizes your results, assesses the extent to which you find support for your hypothesis, describes limitations of your analysis and threats to inference, and states how your analysis could be improved (e.g., improved data that would be useful to collect))
 
 
-```
