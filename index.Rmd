@@ -78,14 +78,20 @@ knitr::kable(hist, digits = 4)
 ```{r Plot}
 library(ggplot2)
 
-ggplot(hist, aes(x = party_switch,
+plot_var <- ggplot(hist, aes(x = party_switch,
                  y = mean_turnout))+
   geom_col(fill = "dodgerblue") + 
   labs(title = "Party switch against voter turnout",
     x = "Party Switch",
       y = "Mean Turnout Percentage(%)") +
   coord_cartesian(ylim=c(75,85)) 
+plot_var 
+
+ggsave("plot_var.png", plot_var, width = 10, height = 5)
+
 ```
+![](plot_var.png)
+
 ## Describing my data
 My sample is comprised of the 222 parliamentary seats that were contested in the 2018 Malaysian general elections. My unit of analysis is a parliamentary seat. The explanatory variable of interest is voter turnout as a percentage of the voting-age population, which is a number out of 100. My outcome variable is the cumulative voteshare received by opposition parties (i.e. those that did not occupy that seat in the previous election), which is a number out of 100. I derived this number by taking 100 - the voteshare received by the incumbent party. Because of the nature of my data, when the incumbent party did not retain their seat, I had to manually input this information. 
 
@@ -150,6 +156,7 @@ fig
 ggsave("fig.png", fig, width = 10, height = 5)
 
 ```
+![](fig.png)
 ## Results
 Linear regression:
 The correlation coefficient of opposition voteshare on voter turnout is 0.742, indicating that when voter turnout increases by 1%, the opposition voteshare increases by 0.742%. The p-value for this regression is 0.001, which is less than 0.05 and hence is statistically significant. 

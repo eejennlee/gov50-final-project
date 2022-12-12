@@ -48,7 +48,7 @@
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["fig_fig_switch.png","fig_noswitch.png","fig.png","index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/Plot-1.png","index_files/figure-html5/unnamed-chunk-3-1.png","index_files/figure-html5/unnamed-chunk-4-1.png","index_files/figure-html5/unnamed-chunk-7-1.png","index_files/figure-html5/unnamed-chunk-8-1.png","index_files/header-attrs-2.16/header-attrs.js","index_files/header-attrs-2.17/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["fig_fig_switch.png","fig_noswitch.png","fig.png","index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/Plot-1.png","index_files/figure-html5/unnamed-chunk-3-1.png","index_files/figure-html5/unnamed-chunk-4-1.png","index_files/figure-html5/unnamed-chunk-7-1.png","index_files/figure-html5/unnamed-chunk-8-1.png","index_files/header-attrs-2.16/header-attrs.js","index_files/header-attrs-2.17/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js","plot_var.png"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1536,16 +1536,21 @@
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span></span>
 <span></span>
-<span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>hist</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>party_switch</span>,</span>
+<span><span class='va'>plot_var</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>hist</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>party_switch</span>,</span>
 <span>                 y <span class='op'>=</span> <span class='va'>mean_turnout</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='st'>"dodgerblue"</span><span class='op'>)</span> <span class='op'>+</span> </span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Party switch against voter turnout"</span>,</span>
 <span>    x <span class='op'>=</span> <span class='st'>"Party Switch"</span>,</span>
 <span>      y <span class='op'>=</span> <span class='st'>"Mean Turnout Percentage(%)"</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_cartesian.html'>coord_cartesian</a></span><span class='op'>(</span>ylim<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>75</span>,<span class='fl'>85</span><span class='op'>)</span><span class='op'>)</span> </span></code></pre>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_cartesian.html'>coord_cartesian</a></span><span class='op'>(</span>ylim<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>75</span>,<span class='fl'>85</span><span class='op'>)</span><span class='op'>)</span> </span>
+<span><span class='va'>plot_var</span> </span></code></pre>
 </div>
-<p><img src="index_files/figure-html5/Plot-1.png" width="624" /></p>
+<img src="index_files/figure-html5/Plot-1.png" width="624" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsave.html'>ggsave</a></span><span class='op'>(</span><span class='st'>"plot_var.png"</span>, <span class='va'>plot_var</span>, width <span class='op'>=</span> <span class='fl'>10</span>, height <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span></span></code></pre>
 </div>
+</div>
+<p><img src="plot_var.png" /></p>
 <h2 id="describing-my-data">Describing my data</h2>
 <p>My sample is comprised of the 222 parliamentary seats that were contested in the 2018 Malaysian general elections. My unit of analysis is a parliamentary seat. The explanatory variable of interest is voter turnout as a percentage of the voting-age population, which is a number out of 100. My outcome variable is the cumulative voteshare received by opposition parties (i.e. those that did not occupy that seat in the previous election), which is a number out of 100. I derived this number by taking 100 - the voteshare received by the incumbent party. Because of the nature of my data, when the incumbent party did not retain their seat, I had to manually input this information.</p>
 <p>This is an observational study. Neither of the three observational study research designs that were covered in lecture apply to my study as there is no treatment being applied and no treatment and control groups; the analysis is merely investigating the correlation between two variables.</p>
@@ -1790,8 +1795,9 @@
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsave.html'>ggsave</a></span><span class='op'>(</span><span class='st'>"fig.png"</span>, <span class='va'>fig</span>, width <span class='op'>=</span> <span class='fl'>10</span>, height <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
-<h2 id="results">Results</h2>
-<p>Linear regression:
+<p><img src="fig.png" />
+## Results
+Linear regression:
 The correlation coefficient of opposition voteshare on voter turnout is 0.742, indicating that when voter turnout increases by 1%, the opposition voteshare increases by 0.742%. The p-value for this regression is 0.001, which is less than 0.05 and hence is statistically significant.</p>
 <p>Because it is possible that this finding is due to confounding factors, I also ran a multiple regression to account for fixed state effects:
 The correlation coefficient of opposition voteshare on voter turnout, controlling for unobserved variation between states, is 1.080, indicating that when voter turnout increases by 1%, the opposition voteshare increases by 1.08%. The p-value is 0.004, which is statistically significant. There is, however, a lot of variation between states, as some states experience a very large negative correlation between voter turnout and opposition voteshare and some experience a very large positive correlation, which produces on aggregate the small positive effect that we observe. Hence, I do not believe that the coefficient represents a causal effect even though it is statistically significant.</p>
